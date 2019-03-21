@@ -2,8 +2,9 @@ package tr.com.manerp.auth
 
 import grails.util.Holders
 import tr.com.manerp.base.domain.BaseDomain
+import tr.com.manerp.common.Person
 
-class User implements BaseDomain, tr.com.manerp.common.Person {
+class User implements BaseDomain, Person {
 
     static auditable = true
 
@@ -36,20 +37,20 @@ class User implements BaseDomain, tr.com.manerp.common.Person {
         photo nullable: true, blank: true, unique: false, maxSize: Holders.config.manerp.postgresql.maxByteSize
         photoName nullable: true, blank: true, unique: false
         photoMimeType nullable: true, blank: true, unique: false
-        firstName nullable: false, blank: false, unique: false
-        middleName nullable: true, blank: true, unique: false
-        lastName nullable: false, blank: false, unique: false
+        firstName nullable: false, blank: false, unique: false, maxSize: 30
+        middleName nullable: true, blank: true, unique: false, maxSize: 30
+        lastName nullable: false, blank: false, unique: false, maxSize: 50
         email email: true, blank: false, nullable: false, unique: ['sysCompany']
         sysrefGender nullable: true, unique: false
-        tcIdNumber nullable: false, unique: false
+        tcIdNumber nullable: false, unique: ['sysCompany']
         isStaff nullable: false, unique: false
         birthDate nullable: true, unique: false
         sysrefCountry nullable: true, unique: false
         sysrefCity nullable: true, unique: false
         sysrefDistrict nullable: true, unique: false
-        address nullable: true, blank: true, unique: false
-        homePhone nullable: true, blank: true, unique: false, maxSize: 50
-        gsmNo nullable: false, blank: false, unique: false, maxSize: 50
+        address nullable: true, blank: true, unique: false, maxSize: 255
+        homePhone nullable: true, blank: true, unique: false, maxSize: 15
+        gsmNo nullable: false, blank: false, unique: false, maxSize: 15
 
     }
 
