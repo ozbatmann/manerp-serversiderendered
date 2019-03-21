@@ -1,6 +1,0 @@
-#Mon, 18 Mar 2019 22:06:36 +0300
-
-info.app.version=0.1
-info.app.name=manerp-serverside-rendered
-grails.env=development
-info.app.grailsVersion=3.3.9
